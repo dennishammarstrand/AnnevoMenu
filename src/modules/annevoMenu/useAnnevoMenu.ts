@@ -5,6 +5,8 @@ import { RouteLocationNormalized, RouteRecordRaw } from "vue-router";
 import AnnevoView from "@/views/AnnevoView.vue";
 
 const menuTree = ref<MenuTree[] | undefined>();
+const headerTitleClicks = ref<number>(0);
+const mainTitleClicks = ref<number>(0);
 
 const initMenuTreeData = async () => {
   menuTree.value = await fetchMenuTreeData();
@@ -44,6 +46,8 @@ const buildNavigationMenu = (tree: MenuTree[]) => {
 };
 
 export const useAnnevoMenu = () => ({
+  headerTitleClicks,
+  mainTitleClicks,
   initMenuTreeData,
   menuTree,
   navigationMenu,
